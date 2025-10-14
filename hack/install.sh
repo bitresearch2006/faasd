@@ -4,7 +4,7 @@
 
 set -e -x -o pipefail
 
-export OWNER="openfaas"
+export OWNER="bitresearch2006"
 export REPO="faasd"
 
 # On CentOS /usr/local/bin is not included in the PATH when using sudo. 
