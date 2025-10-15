@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Copyright OpenFaaS Author(s) 2022
+# Copyright  Author(s) 2022
 
 set -e -x -o pipefail
 
@@ -117,16 +117,16 @@ install_faasd() {
     ;;
   esac
 
-  $SUDO curl -fSLs "https://github.com/openfaas/faasd/releases/download/${version}/faasd${suffix}" --output "/usr/local/bin/faasd"
+  $SUDO curl -fSLs "https://github.com/$OWNER/$REPO/releases/download/${version}/faasd${suffix}" --output "/usr/local/bin/faasd"
   $SUDO chmod a+x "/usr/local/bin/faasd"
 
   mkdir -p /tmp/faasd-${version}-installation/hack
   cd /tmp/faasd-${version}-installation
-  $SUDO curl -fSLs "https://raw.githubusercontent.com/openfaas/faasd/${version}/docker-compose.yaml" --output "docker-compose.yaml"
-  $SUDO curl -fSLs "https://raw.githubusercontent.com/openfaas/faasd/${version}/prometheus.yml" --output "prometheus.yml"
-  $SUDO curl -fSLs "https://raw.githubusercontent.com/openfaas/faasd/${version}/resolv.conf" --output "resolv.conf"
-  $SUDO curl -fSLs "https://raw.githubusercontent.com/openfaas/faasd/${version}/hack/faasd-provider.service" --output "hack/faasd-provider.service"
-  $SUDO curl -fSLs "https://raw.githubusercontent.com/openfaas/faasd/${version}/hack/faasd.service" --output "hack/faasd.service"
+  $SUDO curl -fSLs "https://raw.githubusercontent.com/$OWNER/$REPO/${version}/docker-compose.yaml" --output "docker-compose.yaml"
+  $SUDO curl -fSLs "https://raw.githubusercontent.com/$OWNER/$REPO/${version}/prometheus.yml" --output "prometheus.yml"
+  $SUDO curl -fSLs "https://raw.githubusercontent.com/$OWNER/$REPO/${version}/resolv.conf" --output "resolv.conf"
+  $SUDO curl -fSLs "https://raw.githubusercontent.com/$OWNER/$REPO/${version}/hack/faasd-provider.service" --output "hack/faasd-provider.service"
+  $SUDO curl -fSLs "https://raw.githubusercontent.com/$OWNER/$REPO/${version}/hack/faasd.service" --output "hack/faasd.service"
   $SUDO /usr/local/bin/faasd install
 }
 
